@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"time"
+	// "time"
 	"os"
 	"strings"
 	"github.com/gocolly/colly"
@@ -23,7 +23,12 @@ func writeDocToFile(filename, body string) {
 	check(err)
 	defer f.Close()
 	cleanedBody := strings.TrimSpace(body)
-	cleanedBody = strings.Replace(cleanedBody, "¶", "\n")
+
+	// Removes long blocks of newlines, replaces them with a single newline
+	cleanedBody = strings.Join(strings.Split(cleanedBody, "\n"), "\n")
+
+	// Remove Anchor characters
+	cleanedBody = strings.Replace(cleanedBody, "¶", "", -1)
 	_, err = f.WriteString(cleanedBody)
 	f.Sync()
 	fmt.Println("Written to file:", filename)
@@ -34,6 +39,7 @@ func main() {
 	c := colly.NewCollector(
 		colly.AllowedDomains("docs.python.org", "http://docs.python.org",
 		"https://docs.python.org", "https://docs.python.org/3/"),
+		// colly.Async(true),
 	)
 
 	c.OnResponse(func(r * colly.Response){
@@ -45,14 +51,16 @@ func main() {
 		fmt.Println("Something went wrong during request:", err)
 		check(err)
 	})
-
+	// c.OnHTML("code", func(e *colly.HTMLElement) {
+	// 	fmt.Println("found code!")
+	// 	fmt.Println(e.Text)
+	// })
 	c.OnHTML("div[class=document]", func(e *colly.HTMLElement) {
-		documentBody := e.Text
-
 		absoluteURL := e.Request.URL.String()
 		descriptiveName := strings.Split(absoluteURL, "/3/")[1]
 		filename := strings.Replace(descriptiveName, "/", "-", -1)
 		filename = strings.Split(filename, ".")[0] + ".txt"
+		documentBody := e.Text
 		writeDocToFile(filename, documentBody)
 	})
 
@@ -64,11 +72,11 @@ func main() {
 			c.Visit(absoluteLink)
 		}
 	})
-
-	c.Limit(&colly.LimitRule{
-		 DomainGlob:  "*",
-		 RandomDelay: 2 * time.Second,
- })
+ //
+	// c.Limit(&colly.LimitRule{
+	// 	 DomainGlob:  "*",
+	// 	 RandomDelay: 2 * time.Second,
+ // })
 
 	// Start scraping on seed
   seed := "https://docs.python.org/3/tutorial/appetite.html"
