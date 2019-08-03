@@ -15,7 +15,7 @@ func check(err error) {
 }
 
 func writeDocToFile(filename, body string) {
-	if _, err := os.Stat("docs/" + filename); err == nil {
+	if _, err := os.Stat("corpus/" + filename); err == nil {
 		fmt.Println("File already written.")
 		return
 	}
