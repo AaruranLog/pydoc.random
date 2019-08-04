@@ -3,10 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
-	// "strings"
+	"encoding/csv"
 	"bufio"
 	"io/ioutil"
 	"sync"
+	"strconv"
 )
 
 func check(err error) {
@@ -52,6 +53,23 @@ func combine(s1, s2 *map[string]int) *map[string]int {
 	return s1
 }
 
+func writeMapToCsv(m *map[string]int, filename string) {
+	f, err := os.Create(filename)
+	check(err)
+	defer f.Close()
+
+	writer := csv.NewWriter(f)
+	defer writer.Flush()
+	// Write head
+	header := []string{"char", "count"}
+	writer.Write(header)
+	for k, v := range *m {
+		line := []string{k, strconv.Itoa(v)}
+		writer.Write(line)
+	}
+
+}
+
 func main() {
 	rootDirectory := "examples/" // TODO: change this to os.argv
 
@@ -85,4 +103,5 @@ func main() {
 	// 	}
 	// }()
 	fmt.Println(counter)
+	writeMapToCsv(&counter, "counts.csv")
 }
