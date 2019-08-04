@@ -15,11 +15,12 @@ func check(err error) {
 }
 
 func writeDocToFile(filename, body string) {
-	if _, err := os.Stat("corpus/" + filename); err == nil {
+	targetDir := "corpus/"
+	if _, err := os.Stat(targetDir + filename); err == nil {
 		fmt.Println(filename + " already written.")
 		return
 	}
-	f, err := os.Create("docs/" + filename)
+	f, err := os.Create(targetDir + filename)
 	check(err)
 	defer f.Close()
 	cleanedBody := strings.TrimSpace(body)
@@ -39,7 +40,7 @@ func main() {
 	c := colly.NewCollector(
 		colly.AllowedDomains("docs.python.org", "http://docs.python.org",
 		"https://docs.python.org", "https://docs.python.org/3/"),
-		colly.CacheDir("cache/")
+		colly.CacheDir("cache/"),
 		// colly.Async(true),
 	)
 
