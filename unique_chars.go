@@ -31,7 +31,7 @@ func countCharactersInFile(filename string, ch chan map[string]int, wg *sync.Wai
 		c := s.Text()
 		count, exists := result[c]
 		if ! exists {
-			result[c] = 0
+			result[c] = 1
 		} else {
 			result[c] = count + 1
 		}
