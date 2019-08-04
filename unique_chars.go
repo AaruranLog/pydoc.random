@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"sync"
 	"strconv"
+	"flag"
 )
 
 func check(err error) {
@@ -42,7 +43,6 @@ func countCharactersInFile(filename string, ch chan map[string]int, wg *sync.Wai
 
 func combine(s1, s2 *map[string]int) *map[string]int {
 	for k := range *s2 {
-		// c := s2[k]
 		_, is_in_s1 := (*s1)[k]
 		if is_in_s1 {
 			(*s1)[k] += (*s2)[k]
@@ -71,37 +71,31 @@ func writeMapToCsv(m *map[string]int, filename string) {
 }
 
 func main() {
-	rootDirectory := "examples/" // TODO: change this to os.argv
+	rootDirectoryPtr := flag.String("dir", "examples/", "The directory holding all .txt files to count")
+	flag.Parse()
+	rootDirectory := *rootDirectoryPtr
 
 	c, err := ioutil.ReadDir(rootDirectory)
 	check(err)
 
 	var wg sync.WaitGroup
 	numberOfFiles := len(c)
+	wg.Add(numberOfFiles)
+	// Use a buffered channel, as it is non-blocking
 	maps := make(chan map[string] int, numberOfFiles)
 
-
-	wg.Add(numberOfFiles)
 	for _, v := range c {
 		filename := rootDirectory + v.Name()
 		fmt.Println("filename:", filename)
 		go countCharactersInFile(filename, maps, &wg)
 	}
 	counter := make(map[string] int)
-	// counter := <-maps
-	// fmt.Println(<-maps)
-	// close(maps)
-	// wg.Wait()
 
 	for i := 1; i <= numberOfFiles; i++ {
 		m := <- maps
 		counter = *combine(&counter, &m)
 	}
-	// go func(){
-	// 	for m := range maps {
-	// 		counter = *combine(&counter, &m)
-	// 	}
-	// }()
+
 	fmt.Println(counter)
 	writeMapToCsv(&counter, "counts.csv")
 }
