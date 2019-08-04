@@ -16,7 +16,7 @@ func check(err error) {
 
 func writeDocToFile(filename, body string) {
 	if _, err := os.Stat("corpus/" + filename); err == nil {
-		fmt.Println("File already written.")
+		fmt.Println(filename + " already written.")
 		return
 	}
 	f, err := os.Create("docs/" + filename)
@@ -31,7 +31,7 @@ func writeDocToFile(filename, body string) {
 	cleanedBody = strings.Replace(cleanedBody, "¶", "", -1)
 	_, err = f.WriteString(cleanedBody)
 	f.Sync()
-	fmt.Println("Written to file:", filename)
+	fmt.Println("Written file:", filename)
 }
 
 func main() {
@@ -39,6 +39,7 @@ func main() {
 	c := colly.NewCollector(
 		colly.AllowedDomains("docs.python.org", "http://docs.python.org",
 		"https://docs.python.org", "https://docs.python.org/3/"),
+		colly.CacheDir("cache/")
 		// colly.Async(true),
 	)
 
@@ -72,7 +73,7 @@ func main() {
 			c.Visit(absoluteLink)
 		}
 	})
- //
+ // // Useful for debugging
 	// c.Limit(&colly.LimitRule{
 	// 	 DomainGlob:  "*",
 	// 	 RandomDelay: 2 * time.Second,
