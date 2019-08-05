@@ -1,3 +1,4 @@
 corpus/**.txt
 cache/**
 .ipynb_checkpoints/**
+cleaned_corpus/**.txt
