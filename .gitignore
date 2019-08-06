@@ -1,6 +1,6 @@
-corpus/**.txt
 cache/**
 .ipynb_checkpoints/**
-cleaned_corpus/**.txt
+data/raw/corpus/**.txt
+data/interim/cleaned_corpus/**.txt
 *.npy
 *.npz

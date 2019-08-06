@@ -15,7 +15,7 @@ func check(err error) {
 }
 
 func writeDocToFile(filename, body string) {
-	targetDir := "corpus/"
+	targetDir := "data/raw/corpus/"
 	if _, err := os.Stat(targetDir + filename); err == nil {
 		fmt.Println(filename + " already written.")
 		return
