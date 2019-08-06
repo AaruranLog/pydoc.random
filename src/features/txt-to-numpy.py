@@ -12,7 +12,7 @@ number_of_characters = 104
 phrases = []
 next_chars = []
 source_directory = 'data/interim/cleaned_corpus'
-print('Converting interim data to numpy arrays...')
+print('Reading interim data...')
 for f in tqdm(os.listdir(source_directory)):
     file_name = source_directory + '/' + f
     with open(file_name, 'r') as src:
