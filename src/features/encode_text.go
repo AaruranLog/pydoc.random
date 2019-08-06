@@ -64,8 +64,8 @@ func encodeText(sourceFilename, targetFilename string, m *map[string]string, wg 
 
 
 func main() {
-	rootDirectoryPtr := flag.String("dir", "example_text_files/", "The directory holding all .txt files to count")
-	targetDirectoryPtr := flag.String("target", "cleaned_examples/", "The directoy which will hold the encoded .txt files")
+	rootDirectoryPtr := flag.String("dir", "data/raw/example_text_files/", "The directory holding all .txt files to count")
+	targetDirectoryPtr := flag.String("target", "data/interim/cleaned_examples/", "The directoy which will hold the encoded .txt files")
 	flag.Parse()
 	rootDirectory := *rootDirectoryPtr
 	targetDirectory := *targetDirectoryPtr

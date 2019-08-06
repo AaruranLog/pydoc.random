@@ -71,7 +71,7 @@ func writeMapToCsv(m *map[string]int, filename string) {
 }
 
 func main() {
-	rootDirectoryPtr := flag.String("dir", "example_text_files/", "The directory holding all .txt files to count")
+	rootDirectoryPtr := flag.String("dir", "data/raw/example_text_files/", "The directory holding all .txt files to count")
 	flag.Parse()
 	rootDirectory := *rootDirectoryPtr
 
