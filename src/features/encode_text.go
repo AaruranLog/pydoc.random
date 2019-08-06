@@ -8,7 +8,7 @@ import (
 	"io"
 	"io/ioutil"
 	"sync"
-	// "strconv"
+	"strings"
 	"flag"
 )
 
@@ -39,6 +39,10 @@ func readMapToCsv(filename string) map[string]string{
 
 func encodeText(sourceFilename, targetFilename string, m *map[string]string, wg *sync.WaitGroup) {
 	defer (*wg).Done()
+	if strings.HasPrefix(sourceFilename, ".") {
+		fmt.Println("Hidden file, skipping")
+		return
+	}
 	in, err := os.Open(sourceFilename)
 	check(err)
 
@@ -58,7 +62,7 @@ func encodeText(sourceFilename, targetFilename string, m *map[string]string, wg 
 		}
 		t.WriteString(newC + " ")
 	}
-	fmt.Println("finished with:", sourceFilename)
+	fmt.Println("finished encoding:", sourceFilename)
 	return
 }
 
@@ -76,7 +80,7 @@ func main() {
 	numberOfFiles := len(c)
 	wg.Add(numberOfFiles)
 	// Use a buffered channel, as it is non-blocking
-	converter := readMapToCsv("char_int_map.csv")
+	converter := readMapToCsv("src/features/char_int_map.csv")
 
 	for _, v := range c {
 		sourceFilename := rootDirectory + v.Name()

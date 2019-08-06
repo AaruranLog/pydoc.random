@@ -28,8 +28,8 @@ are used in this codebase, they need not be installed locally.
 After installing Go and python, run the script in src named 'prepare_data.sh',
 from the root-directory level.
 ```
-  chmod u+x prepare_data.sh
-  ./prepare_data.sh
+  chmod u+x src/prepare_data.sh
+  ./src/prepare_data.sh
 ```
 
 ## To prepare the data manually
@@ -48,6 +48,6 @@ from the root-directory level.
 ```
 4. Transform the integerized character tokens into a compressed numpy matrix
 ```
-  python count-chars.py
-  python txt-to-numpy.py
+  python src/features/count-chars.py
+  python src/features/txt-to-numpy.py
 ```

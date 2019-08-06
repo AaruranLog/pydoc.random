@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"sync"
 	"strconv"
+	"strings"
 	"flag"
 )
 
@@ -19,6 +20,11 @@ func check(err error) {
 
 func countCharactersInFile(filename string, ch chan map[string]int, wg *sync.WaitGroup) {
 	defer (*wg).Done()
+	if strings.HasPrefix(filename, ".") {
+		fmt.Println("Hidden file, skipping")
+		return
+	}
+
 	in, err := os.Open(filename)
 	check(err)
 
@@ -37,7 +43,7 @@ func countCharactersInFile(filename string, ch chan map[string]int, wg *sync.Wai
 		}
 	}
 	ch <- result
-	fmt.Println("finished with:", filename)
+	fmt.Println("done counting:", filename)
 	return
 }
 

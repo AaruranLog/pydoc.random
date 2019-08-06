@@ -11,7 +11,7 @@ maxlen = 40 # tunable parameter, but fine for now
 number_of_characters = 104
 phrases = []
 next_chars = []
-source_directory = '../data/interim/cleaned_corpus'
+source_directory = 'data/interim/cleaned_corpus'
 print('Converting interim data to numpy arrays...')
 for f in tqdm(os.listdir(source_directory)):
     file_name = source_directory + '/' + f
@@ -22,10 +22,10 @@ for f in tqdm(os.listdir(source_directory)):
         for i in range(len(tokens) - maxlen):
             phrases.append(tokens[i:i + maxlen])
             next_chars.append(tokens[i+maxlen])
-
+print('Creating numpy arrays...')
 x_data = np.array(phrases)
 y_data = np.array(next_chars)
-print('Saving to npz file')
-target_file = '../data/processed/compressed_data.npz'
-np.savez_compressed(target_files, x_data=x_data, y_data=y_data)
+print('Saving to npz file...')
+target_file = 'data/processed/compressed_data.npz'
+np.savez_compressed(target_file, x_data=x_data, y_data=y_data)
 print('Done.')
