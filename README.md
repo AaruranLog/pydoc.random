@@ -30,7 +30,14 @@ are used in this codebase, they need not be installed locally.
 I've included a compressed npz file which you can use to train your own models.
 Alternatively, you can prepare the data yourself from scratch.
 
-## To prepare the data automatically
+# To unpack the data from a compressed file
+
+There is a file `src/data/raw_corpus.tar.gz` which you can unpack, either from
+the command line or using the 'shutil' standard package in python. Make sure it
+is unpacked into the directory `data/raw/corpus/` for the repo's compatibility.
+
+# To download and prepare the data
+## Automatically
 After installing Go and python, run the script in src named 'prepare_data.sh',
 from the root-directory level.
 ```
@@ -40,7 +47,7 @@ from the root-directory level.
 The last python script (txt-to-numpy.py) may fail, but if you run it a few times
 on a device with sufficient memory, it should complete without too much trouble.
 
-## To prepare the data manually
+## Manually
 1. Install the following go package to replicate the web crawling.
 ```
   go get github.com/gocolly/colly
