@@ -27,6 +27,9 @@ I have provided a requirements.txt file for your convenience.
 Note: Model training is done using Google's colab, so although tensorflow and keras
 are used in this codebase, they need not be installed locally.
 
+I've included a compressed npz file which you can use to train your own models.
+Alternatively, you can prepare the data yourself from scratch.
+
 ## To prepare the data automatically
 After installing Go and python, run the script in src named 'prepare_data.sh',
 from the root-directory level.
@@ -36,6 +39,7 @@ from the root-directory level.
 ```
 The last python script (txt-to-numpy.py) may fail, but if you run it a few times
 on a device with sufficient memory, it should complete without too much trouble.
+
 ## To prepare the data manually
 1. Install the following go package to replicate the web crawling.
 ```
