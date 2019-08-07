@@ -9,6 +9,9 @@ very possible to turn this into a 'pure' Python project using packages like Beau
 - [ ] Train a RNN (or LSTM or GRU) on the text.
 - [ ] Generate a tutorial using deep learning
 
+Currently, the code uses a character-level approach. This method has terrible
+performance, and training is still time-consuming. More model-tuning to be done.
+
 # Installation
 To duplicate the results of this repository, I recommend pre-installing Go,
 and Python 3.7+.
@@ -31,7 +34,8 @@ from the root-directory level.
   chmod u+x src/prepare_data.sh
   ./src/prepare_data.sh
 ```
-
+The last python script (txt-to-numpy.py) may fail, but if you run it a few times
+on a device with sufficient memory, it should complete without too much trouble.
 ## To prepare the data manually
 1. Install the following go package to replicate the web crawling.
 ```
