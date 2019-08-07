@@ -4,3 +4,4 @@ data/raw/corpus/**.txt
 data/interim/cleaned_corpus/**.txt
 *.npy
 *.npz
+*.hdf5
