@@ -1,18 +1,19 @@
-An recurrent neural network to artificially generate documentation for Python 3.
+Generate Plausible Python 3 Documentation using Deep Learning
+
 This project is NOT pure python (unfortunately for the purists) because I use golang
 for web crawling and some parallelized data cleaning. That being said, it is
-very possible to turn this into a 'pure' Python project using packages like BeautifulSoup.
+very possible to turn this into a 'pure' Python project using [other tools](https://pypi.org/project/beautifulsoup4/).
 
 # Plan:
 - [x] Write a web crawler to fetch text from the python 3.7 docs
 - [x] Create a data pipeline to turn that text into a learnable format.
 - [x] Train a RNN (or LSTM or GRU) on the text.
-- [x] Generate a tutorial using deep learning
+- [x] Generate some documentation using deep learning
 
-Originally, the code uses a character-level approach. This method has terrible
+Originally, the code used a character-level approach. This method has terrible
 performance, and training is still time-consuming on GPU.
 
-Then, we applied the pretrained GPT-2 model. This approach was more successful.
+Then, I applied the pretrained GPT-2 model. This approach was more successful.
 Samples of the generated text can be found in the 'samples' folder. I've included
 a sample of the best generated text below.
 ```
@@ -36,8 +37,8 @@ To duplicate the results of this repository, I recommend pre-installing Go,
 and Python 3.7+.
 
 ## The easiest way to duplicate my results
-1. Upload the file 'notebook/gpt2_model.ipynb' to a Google Colab notebook.
-2. Upload the file 'src/data/raw_corpus.tar.gz' to that notebook's workspace
+1. Upload the file `notebook/gpt2_model.ipynb` to a Google Colab notebook.
+2. Upload the file `src/data/raw_corpus.tar.gz` to that notebook's workspace.
 3. Ensure the Colab runtime has GPU acceleration enabled*.
 4. Run the notebook, and sit back for ~10-20 minutes as the model finetunes
 
@@ -45,11 +46,11 @@ and Python 3.7+.
 I use conda to manage my python packages, but because this
 codebase is multi-lingual, there is no one-size-fits-all solution. However, the
 data pipeline uses very few non-standard packages. As well, I recommend that the model training
-and text generation be done on colab using 'notebook/gpt2_model.ipynb', which installs
+and text generation be done on colab using `notebook/gpt2_model.ipynb`, which installs
 one package into the cloud environment. In other words, this project is small enough
 that I don't think it requires a dedicated virtual environment.
 
-The go pipeline only requires you to install the package 'colly',
+The go pipeline only requires you to install the package `colly`,
 and its dependencies. The rest of the go packages used are standard.
 
 However, if you wish to create your own python environment (with conda, or venv),
@@ -68,14 +69,14 @@ is unpacked into the directory `data/raw/corpus/` for the repo's compatibility.
 
 # To download and prepare the data
 ## Automatically
-After installing Go and python, run the script in src named 'prepare_data.sh',
+After installing Go and python, run the script in src named 'download_and_prepare_data.sh',
 from the root-directory level.
 ```
-  chmod u+x src/prepare_data.sh
-  ./src/prepare_data.sh
+  chmod u+x src/download_and_prepare_data.sh
+  ./src/download_and_prepare_data.sh
 ```
 The last python script (txt-to-numpy.py) may fail, but if you run it a few times
-on a device with sufficient memory, it should complete without too much trouble.
+on a device with sufficient memory, it should complete without much trouble.
 
 ## Manually
 1. Install the following go package to replicate the web crawling.
@@ -86,6 +87,7 @@ on a device with sufficient memory, it should complete without too much trouble.
 ```
   go run src/data/crawl.go
 ```
+The next steps are only necessary to integer-encode the characters.
 3. Process the data in the raw corpus into character tokens
 ```
   go run src/features/unique_chars.go -dir=data/raw/corpus
