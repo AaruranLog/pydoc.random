@@ -6,18 +6,48 @@ very possible to turn this into a 'pure' Python project using packages like Beau
 # Plan:
 - [x] Write a web crawler to fetch text from the python 3.7 docs
 - [x] Create a data pipeline to turn that text into a learnable format.
-- [ ] Train a RNN (or LSTM or GRU) on the text.
-- [ ] Generate a tutorial using deep learning
+- [x] Train a RNN (or LSTM or GRU) on the text.
+- [x] Generate a tutorial using deep learning
 
-Currently, the code uses a character-level approach. This method has terrible
-performance, and training is still time-consuming. More model-tuning to be done.
+Originally, the code uses a character-level approach. This method has terrible
+performance, and training is still time-consuming on GPU.
+
+Then, we applied the pretrained GPT-2 model. This approach was more successful.
+Samples of the generated text can be found in the 'samples' folder. I've included
+a sample of the best generated text below.
+```
+  The first line of Formatter class is defined by
+  Formatter.setfield(value, type)
+  If type is a sequence of
+  strings that contains a field named value, the field is
+  modified by the setfield() method.  If type is a single
+  string, the field is modified by the setfield() method.  For example:
+  >>> class _Field:
+  ...     'fieldname' = '__class__'
+  ...     'value' = 2
+
+
+  This class is documented in section Field objects.
+```
+Impressively, the model was able to produce believeable Python code.
 
 # Installation
 To duplicate the results of this repository, I recommend pre-installing Go,
 and Python 3.7+.
 
+## The easiest way to duplicate my results
+1. Upload the file 'notebook/gpt2_model.ipynb' to a Google Colab notebook.
+2. Upload the file 'src/data/raw_corpus.tar.gz' to that notebook.
+3. Ensure the Colab runtime has GPU acceleration enabled*.
+4. Run the notebook, and sit back for ~10-20 minutes as the model finetunes
+
+## A Note on Environments
 I use conda to manage my python packages, but because this
-codebase is multi-lingual, there is no one-size-fits-all solution.
+codebase is multi-lingual, there is no one-size-fits-all solution. However, the
+data pipeline uses very few non-standard packages. As well, I recommend that the model training
+and text generation be done on colab using 'notebook/gpt2_model.ipynb', which installs
+one package into the cloud environment. In other words, this project is small enough
+that I don't think it requires a dedicated virtual environment.
 
 The go pipeline only requires you to install the package 'colly',
 and its dependencies. The rest of the go packages used are standard.

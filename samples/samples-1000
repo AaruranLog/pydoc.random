@@ -1,0 +1,108 @@
+[Snippets]
+[UsefulSnippets]
+[From the Snippets section]
+[Words]
+[Words From the Noun]
+[Words From the Noun]
+
+
+
+The first line of the Formatter class shows the line number of
+the first line of the header.  The second line of the Formatter class
+indicates the number of the first line of the header.
+The header is not displayed unless the field is set to a , and
+the field is a dictionary of strings.
+
+
+
+The first line of Formatter class is defined by
+Formatter.setfield(value, type)
+If type is a sequence of
+strings that contains a field named value, the field is
+modified by the setfield() method.  If type is a single
+string, the field is modified by the setfield() method.  For example:
+>>> class _Field:
+...     'fieldname' = '__class__'
+...     'value' = 2
+
+
+This class is documented in section Field objects.
+
+
+See also
+The field syntax is detailed in the section Field Objects.
+
+
+
+
+Footnotes
+
+1
+The following are missing in Python 2.  Some of these are
+needed because of the nature of the syntactic sugar used in the language specification.
+
+
+2
+In Python 2.3 and later, the __annotations__ attribute has an
+additional value of None, which is used to indicate that
+this attribute is not set to None.  In Python 3, the __annotations__ attribute
+has an additional value of None, which is used to indicate that
+it is not set to None.  In Python 3.4, the __annotations__ attribute has
+a value of None, which is used to indicate that it is not set
+to None.
+
+
+
+
+3
+In Python 3.4, the __annotations__ attribute has an additional value of
+None, which is used to indicate that __annotations.  In
+Python 3.4, the __annotations__ attribute has a value of None.  In
+Python 3.4.4, the __annotations__ attribute has a value of None.  In
+Python 3.4.5, the __annotations__ attribute has a value of None.
+In Python 3.4.5, the __annotations__ attribute has a value of None.  In
+Python 3.4.6, the __annotations__ attribute has a value of None.  In
+Python 3.4.6.5, the __annotations__ attribute has a value of None.  In
+Python 3.4.7, the __annotations__ attribute has a value of None.
+In Python 3.4.7.5, the __annotations__ attribute has a value of None.
+In Python 3.4.7.6, the __annotations__ attribute has a value of None.
+
+
+
+
+4
+In Python 3.3 and later, the __annotations__ attribute has a value of
+None, which is used to indicate that
+__annotations.  In Python 3.3, the __annotations__ attribute has
+a value of None.  In Python 3.4, the __annotations__
+attribute has a value of None.  In Python 3.4.4, the __annotations__
+attribute has a value of None.  In Python 3.4.4.5, the __annotations__
+attribute has a value of None.  In Python 3.4.5.5, the __annotations__
+attribute has a value of None.
+
+
+
+
+5
+In Python 3.3 and later, the __annotations__ attribute has a value
+of None, which is used to indicate that
+__annotations.  In Python 3.4, the __annotations__
+attribute has a value of None.  In Python 3.4.5, the __annotations__
+attribute has a value of None.  In Python 3.4.5.6, the __annotations__
+attribute has a value of None.
+
+
+
+6
+In Python 3.3 and later, the __annotations__ attribute has a value of
+None, which is used to indicate that
+__annotations.  In Python 3.4, the __annotations__
+attribute has a value of None.  In Python 3.4.5, the __annotations__
+attribute has a value of None.
+
+
+7
+In Python 3.4 and later, the __annotations__ attribute has a value
+of None, which is used to indicate that
+__annotations.  In Python 3.4, the __annotations__
+attribute has a value of None.  In Python 3.4.5

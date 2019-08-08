@@ -1,0 +1,158 @@
+======== SAMPLE 1 ========
+
+
+The "Newest" column is the oldest line with a timestamp, the other column the entry is currently on (if there is a valid timestamp in a
+subsection), and the "Newest" column is the newest line from this
+archive, if there is a valid timestamp on the entry.
+The "Newest" column is the oldest line from thisarchive, the other
+column the entry currently on (if there is a valid timestamp in a
+subsection), and the "Newest" column is the current entry in the
+archive (if there is at least one valid entry in the
+archive).
+
+
+
+Changed in version 3.7: Added new syntax for "Entry of Newest and Previously" column.
+The "Newest" column is the oldest line with a timestamp and other lines of entry with
+the timestamp.
+
+
+
+
+
+New in version 3.7.
+
+
+
+
+
+New in version 3.4.5.
+
+
+
+
+New: Newest table
+Newest
+
+
+
+
+New: Newest
+Newest - oldest
+
+(Last modified: Wed Dec 9, 2004 10:56:56 EDT)
+
+
+
+
+
+
+New in version 3.7.
+
+
+
+Changed in version 3.6: Show and Hide items now display the timestamp and
+the current entry from the archive
+only if the archive has a valid timestamp.
+
+
+
+
+
+New: Added new line.
+Changed in version 3.6: Show and Hide items now display the timestamp and
+the current entry from the archive only if the archive has a valid timestamp.
+
+
+
+
+
+New: Fixed a bug when deleting items in the "Newest" column.
+
+
+
+
+
+New in version 3.4: All new formatters added, using 
+the new format() method.
+See also File:Formatters.
+
+
+Changed in version 3.3: Added the use of "Last updated on: 12/4/10 09:13:18" to the
+list of files to be checked in the database.
+
+
+New in version 3.1.
+New:
+New: Added the use of Formatters.
+
+
+
+
+New in version 7.7: Updated the                    section
+of the archive to correct the error raised by the -n flag to the last line to the
+current entry in the archives.
+
+
+
+
+
+new in version 3.7: Showing and Hide items (now only show only the current entry) now has a
+statistic attribute to display.
+
+
+
+
+
+New in version 3.5.
+
+
+
+
+
+New in version 3.5.
+
+
+
+Changed in version 3.3.
+
+
+
+
+
+New in version 3.1: Added a new Formatter.                
+                                 
+                    New
+
+
+
+
+
+New in version 3.5: Added a new Formatter, showing the current entry (if a valid
+entry in the archive exists) and the entry and a string if it is missing
+“last available”.
+
+
+
+
+Changed in version 3.4: New information for the archive entries is now provided.
+
+
+
+
+
+New in version 3.0.
+New:       
+       Report a Report an error.     
+       Show a report for a specific entry.
+
+
+
+
+Changed in version 3.3: Added the use of Formatters and the Report a Report a Report an Error as the Formatters.
+
+
+
+
+
+New in version 3.1: Changed the type of the Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report a Report

@@ -1,0 +1,164 @@
+======== SAMPLE 1 ========
+etime'..
+
+
+In the case of Unicode, the name is usually a prefix of ASCII, but it makes it difficult to embed in your own custom
+literals.  But it is really the character encoding that has been the cause of all
+this trouble.
+If your language doesn’t use ASCII’s alphabet, Unicode does need to be consulted: it’s
+important that it’s properly encoded.
+
+
+For convenience, Python’s str.ascii() function returns a string
+containing the name of the Unicode character, for each character except the
+first digit.  If you’re lucky, it will be character-cell-encoded, so that the
+ASCII encoded string will read character strings like this:
+
+
+
+
+
+
+Notes: 
+
+a) If it is not the first character of the Unicode character set,
+returns a Unicode letter.
+b) As with ASCII letters, if this string contains an ASCII letter, the
+ASCII encoded string will be character-cell-encoded, so that it
+will use its character '0' as its first character, followed by character
+spaces.
+c) If this string contains no ASCII letter, it should not contain the non-ASCII
+letter.
+d) If there are no other ASCII letters in the string, the Unicode letter is used as
+the first character. If the first character of the string is not a valid
+ASCII letter, the string will be encoded Unicode.
+
+
+
+
+
+3.3.2.9. Unicode Literals
+Python’s ui library also contains some types of Python bytecode.  A wide range of
+types are supported:
+
+Regular and Number objects
+Numbers
+Floating Point Python objects
+Ellipsis
+String objects
+Characters
+Sequences
+Boolean values
+
+
+In addition, there are constants used to control the behavior of Python’s
+literals: __linenum__, __stderr__, and
+__str__.  __linenum__ is the interface to __linenum__, while __stderr__
+is the API to turn Python’s variables into single values and to
+define constant strings for all literals. See the following table for the
+syntax of the “__linenum__” constants.  __stderr__ is the interface to the
+__linenum__ constants specified by the __stderr__ function used for
+Python.
+The __linenum__ functions define a variable which defines the type
+of the bytecode that will write it.  When not defined, the value returned by
+__linenum__ is used as the actual bytecode, and the variable can not be used
+differentively.  When the __linenum__ function is an object, though, the
+type which is used gets assigned to the variable in turn, and by default, the
+__linenum__ object will not get NULL.
+Here is a complete list of Python literals for Unix and Windows:
+
+
+
+
+
+
+LIMITED_VARARGS
+
+
+
+True
+
+
+
+False
+
+
+
+None
+
+
+
+None
+
+
+
+FalseAllowed values
+None
+
+
+
+FalseSpecial
+Boolean value
+
+
+(0, True)
+
+
+(1, False)
+None
+
+
+(0, True)
+
+
+(1, False)
+None
+
+
+(1, False)
+
+
+(2, True)
+The following constants are defined for Python 2.x:
+
+
+
+
+
+
+
+
+Constant
+
+Name
+Notes
+
+
+
+stderr
+The interface of the __linenum__ constants to Python’s type definition.
+
+Stderr gives a “type-specific error” message when an invalid type definition
+is encountered:
+>>> m = PyType_New("int", 7, "integer")  # create object using the wrong type
+>>> m.__linenum__()
+int                     
+1
+>>> m.__stderr__()
+False
+>>> int('37')                   
+1
+>>> int(3)                      
+1
+
+
+This is very handy when you need to create a new value, but don’t know if it’s
+relevant at the moment:
+# Create a Python object:
+# type
+int('3')
+Py_TYPE(m)
+m.__linenum__
+1
+>>> int(3)                    | 1
+4

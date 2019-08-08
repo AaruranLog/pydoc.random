@@ -1,0 +1,121 @@
+======== SAMPLE 1 ========
+ IP
+>>> f = b"*"
+>>> f.name
+""
+>>> f.name
+""
+>>> f.value
+9
+>>> f.size
+1
+
+
+
+
+
+>>>>>> class Point(b'a')
+...      x = b"**"
+>>> print(x)                   
+Point()
+x = b"%7d" % 10
+>>> x.name
+"Raymond Wilson"
+>>>                   [Point().__name__]
+Point()
+
+
+
+
+
+>>> # of arguments:
+    x, y = b"**"
+>>> z = Point()                         # compute x's value
+>>> x, y = b"**"
+>>> z += x
+>>> z < 3                     # compute y's value
+Point()
+x = b"%3d" % z
+
+>>> x = b"%1d" % (x / 3)
+
+>>> d = Point()                       # compute d's value
+>>> d < 3  # compute d's size
+Bool(d)
+Point()
+
+
+
+
+bzip2.compile(size, d)
+Computation function
+
+Note
+In bzip2, the size parameter is the absolute value, not an
+integer.  The d parameter is an integer that must be
+concatenated onto a dictionary to create a new
+dictionary attribute.  Note that this only applies to
+long and/or fixed length arrays, not any other data types that have
+long names.  Note that this does not apply when you create an iterable
+that doesn’t fit into a new sequence.  For example,
+if you have a fixed length list, then d must be equal to the length of
+the list object.
+The size parameter determines whether d is an integer
+or not.  The size of the dictionary is not an attribute, it
+is a dictionary created by compile() and passed to
+bzip2.
+
+Note
+In bzip2, the size parameter is the absolute value, not an
+integer.  The d parameter is an integer that must be
+concatenated onto a dictionary to create a new
+dictionary attribute.  For example,
+if you have a fixed length list, then d must be equal to the length of
+the list object.
+The size parameter determines whether d is an integer
+or not.
+
+New in version 3.7.
+
+
+
+
+
+bzip2.compress(filename, maxsize=-1, dst=-1)
+Compress the filename and return the resulting
+dictionary data.
+
+
+
+
+>>> from random import randrange, compress
+>>> d = randrange(0, 4096).sample(10)  #sample the list on top
+>>> for i in range(10):
+...    d.append(i)
+>>> d    = '\030000'  # sample the list on top
+>>> d    = '.\t'
+>>> d                # sample the list on top of an array
+>>> d    = '.\t'
+>>> d                # sample the list of lists on top of a list
+>>> d    = '\t'
+>>> d                     # print some output
+>>> d    = '.\t'
+>>> d                   # print some output
+>>> d   = '.\t'
+>>> d    = '.\t'
+>>> d    = '.\t'
+>>> d    = '.\t'
+>>> d    = '.\t'
+>>> d     = '.\t'
+>>> d    = '.\t'
+>>> d    = '.\t'
+>>> b"\t"
+b"\t"
+
+
+
+
+Note
+In bzip2, the size parameter is the absolute value, not an
+integer.  The size of the dictionary is not an attribute, it is
+a dictionary created by compile() and passed to

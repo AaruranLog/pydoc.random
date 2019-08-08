@@ -1,0 +1,166 @@
+======== SAMPLE 1 ========
+ no
+more.  You only get one exception: The first is a reference to the
+previous thread.
+The third exception is still documented below.  However, it is
+still called a thread-related exception.
+The Python interpreter uses the built-in threading module (as defined in The
+standard library) to serialize the data to a file socket, and it does this by
+using the socket module. Thus all exceptions are reported in file handles
+and namespaces, rather than being contained in a file.
+
+
+See also
+
+Module threadingAn extension that provides support for threading.
+Examples of threading objects for example.
+The file handles in .pth files are:
+
+
+
+
+
+
+
+CObject
+Object
+
+object.pfd
+
+object.lstp
+
+object.socketsize
+
+object.size
+
+object.popen
+
+object.fd
+
+object.pcharset
+String
+
+object.errors
+
+object.errorlevel
+The set of errors defined below.  This is
+default to one.
+
+
+
+
+
+
+
+CObject & Objects
+The object.pfd
+Class
+BaseClass
+
+object.pcharset
+String
+
+object.errors
+Exception
+
+object.errorlevel
+The set of errors defined below.  This is
+default to one.
+
+
+
+
+
+
+Class CObject
+object.Pcharset
+Value representing the value of the pcharset variable.
+
+The objects listed above all have the same type.
+
+
+Class methods
+These methods are all C methods that accept one argument. There is no
+standard way to get an equivalent type in your code; instead, it is the simplest
+form of assignment:
+
+
+class C(object):
+    type = C("Python", object.pcharset)
+    ...
+    # prints                   ...
+    return new C(Type("class", type.C_STRING))
+
+if __name__ == "__main__":
+    PyArg_ParseTuple("--foo", "foo")
+
+if __name__ == "__main__":
+    PyArg_ParseTuple("--fancy", "for your own fancy pyc");
+    return PyArg_ParseTuple("--main.py", &"foo.py");
+
+
+
+
+Here is a typical Python program:
+
+
+#include <ctypes.h>
+#define PY_MAJOR
+#include <string.h>
+#include <cfile.h>
+#include <sys/types.h>
+#include <ctypes.h>
+#include "type.h"
+#include <string.h>
+#include <struct.h>
+#include "type.h"
+#include <file.h>
+#include <ctypes.h>
+#include <string.h>
+#include <int.h>
+#include <ctypes.h>
+#include <type.h>
+#include <ctypes.h>
+#include <ctypes.h>
+#include <string.h>
+#include <string.h>
+#include <class.h>
+#include <ctypes.h>
+#include <string.h>
+#include <type.h>
+#include <ctypes.h>
+#include <ctypes.h>
+#include <string.h>
+#include <class.h>
+#include <list.h>
+#include <string.h>
+#include <ctypes.h>
+#include <ctypes.h>
+#define PY_MAJOR
+#include <ctypes.h>
+#include <ctypes.h>
+#include <string.h>
+#include <ctypes.h>
+#include <int.h>
+#include <string.h>
+#include <ctypes.h>
+#include <string.h>
+#include <string.h>
+#include <ctypes.h>
+#include <string.h>
+#include <string.h>
+#include <string.h>
+#include <ctypes.h>
+#include <ctypes.h>
+#include <ctypes.h>
+#include <ctypes.h>
+int Py_Bytes_FromString(PyObject *o)
+return-0;
+
+
+#else:
+
+#define PY_MAJOR
+#include <ctypes.h>
+#include <string.h>
+#include <

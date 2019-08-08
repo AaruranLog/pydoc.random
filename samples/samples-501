@@ -1,0 +1,136 @@
+======== SAMPLE 1 ========
+
+
+
+
+New in version 3.2.
+
+
+
+
+
+class threading.Timeout
+A subclass that can be initialized before or all of the loop’s
+interval, except when the time.interval and time.target
+items have been set.
+
+Deprecated since version 3.4.
+
+
+
+
+
+class threading.Thread
+A subclass that can be initialized all the time and a single thread when
+the time.wait() object is invoked.
+Note that in order to have threads execute at the same time, one must
+immediately call the base class with a timeout of seconds, which
+can be delayed by calling run_thread().
+
+Deprecated since version 3.6.
+
+
+
+See also
+
+Thread for concurrent tasks (threaded.run_thread()) and
+interloop.time().
+
+
+
+
+
+
+
+class threading.Timeout.wait()
+A subclass that raises an exception when the loop’s time.interval
+item has exceeded the time.sleep() time, set
+timeout, or any number of other timeouts at most once.  The
+time.sleep() timeouts occur as the result of a combination of
+the time.sleep() timeout and the event
+
+
+See also
+ThreadingError (as a time.sleep() exception)
+and Thread.sleepTimeoutError
+for more information on the internality of timedelta exceptions.
+
+
+
+
+
+class threading.Timeout.sleep(timeout)
+A subprocess that waits until timeout is reached while waiting
+for a timeout signal handler to be run. During the wait, this
+process raises an exception if it is caught (i.e., it is not
+able to signal or raise a timeout).  This raises
+Thread.sleep() for no particular reason.
+The wait() method allows passing an argument, such as an integer
+starting with -1 or 1, depending on the timeout parameter.  The
+argument must occur before the time.sleep() method.
+This is to ensure that the timeout isn’t interrupted, as long as
+it is an integer or non-integer which isn’t interrupted during a
+wait.
+
+Warning
+If the timeout argument is not supplied to the __future__ module of
+__import__(), a timeout can’t be specified in the
+__future__() attribute of Timeout’s __future__()
+method.  If timeout is supplied to a class which
+is not part of the class hierarchy, the timeout attribute will be passed
+as None.
+
+Changed in version 3.7: Accepts a non-zero timeout parameter.
+
+
+
+
+
+class threading.Timer
+A subclass that can be initialized at any time and run concurrently when
+the time.stop() method is called. It can, for example, be called from
+a threaded instance and then called from a timer.
+
+Deprecated since version 3.6 and will be removed in version 4.0.
+
+
+
+
+
+class threading.Timer(type=None)
+A subclass of timer which can be initialized at any time and run concurrently when
+the timer object is called from a threaded
+instance that has a timer object of the same
+type.
+
+
+
+
+class threading.Timer(type=None, time=None, start_thread=None, stop_thread=None, start_thread_start=None)
+A subclass that can be initialized at any time and run concurrently when
+the timer object is called from a threaded
+instance that has a timer object of the same type.
+
+
+
+
+class threading.Timer(type=None, time=None, start_thread=None, stop_thread=None, start_thread_stop=None, stop_thread_stop=None)
+A subclass which can be initialized at any time and run concurrently when
+the timer object is called from a threaded
+instance that has a timer object of the same type. See
+classmethod for a more detailed description.
+The start_thread/stop_thread arguments describe the start of scheduled
+timeouts.
+
+
+
+
+class threading.TimeInSeconds(seconds=None, start_time=None, stop_time=None, time_in_sec=None, stop_time_from_start=None)
+A subclass that can be initialized at any time and run concurrently when
+the time.introt()) and clock() methods are
+called.
+The time_in_sec and stop_time_from_start arguments
+describe where clock() should stop at when time.is_now()
+is called and optionally start_time. When timedelta(seconds, start_time=start_time) is not
+available, a timeout will be provided for the timedelta(seconds, stop_time=stop_time)
+resulting from start_time

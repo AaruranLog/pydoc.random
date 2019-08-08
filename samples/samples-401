@@ -1,0 +1,120 @@
+======== SAMPLE 1 ========
+           # print, %s: [10, 9, 6, 3, 1, 0]
+
+
+print(stdout.gettext())
+Print output
+Printing version information...
+
+Warning: If this function returns no, __getstat__() should not be used.
+
+
+
+
+
+          
+         
+       
+         
+   Table of Contents
+  Previous topic
+  File Import — Import and export files
+  Next topic
+  System Services — Services to manage files or other structured data
+
+   This Page
+   
+     Report a Bug
+     
+       Show Source<|endoftext|>1. Examples
+The examples in this chapter show how to run C code that runs programmatically in shell.
+This chapter is about various examples that allow working with C++ programs or shell code.
+The example examples are not meant, however, to be interpreted as command line strings;
+though, it could look a bit like this:
+/*
+Hello world!
+/*
+hello
+/*
+
+
+*/
+\t.     /*:
+Hello world
+/*
+
+
+
+
+
+
+  Previous topic
+  examples — Examples for use in ShellExec.Shell
+  Next topic
+  Examples — ShellExec.Shell
+  
+    This Page
+    
+      Report a Bug
+      
+        Show Source<|endoftext|>3. The shell debugger
+This chapter presents some examples showing how to use a shell debugger in a shell debugger.
+The examples are meant to be the base for more complete examples of executing shell functions.
+
+
+3.1. Writing and executing shell commands
+The following sections describe the various commands executed in the shell, the execution order of shells
+and the use cases of each command. The section on execution order is equivalent to:
+
+\t.     "d" executes
+
+:d.     "b" executes
+
+D.     "m" executes
+
+D.     "v" executes
+
+"M" executes
+
+V.     "b" executes
+
+M.     "m" executes
+
+"M.b" executes
+
+The two sections have different uses for shell variables and command
+instances. The purpose of this chapter is to describe the use of shell variables for command and
+instances without making assumptions about the value of the variables in the
+argument or with respect to executing them.
+
+
+3.2. Writing and executing shell commands in the interpreter
+Writing shell commands to a program is not as straightforward as writing shell shell code.
+It is very possible that you will write code that executes a shell-based application like a web browser.  Therefore, the solution
+follows.
+You should write a simple C-style script which executes one standard C macro, and
+the macro may be overridden using standard C functions. There is also the possibility of overraring
+the macro with an external function, which is called with the name of the function to be overridden.
+There are two general ways to write a script: write (with C++ type overrulation); and
+executor.
+Writing custom code using C++ type overrulation in the interpreter may be very useful for those
+who want to write shell-based user code, or even user-defined application code.
+Writing your own script is usually very simple, and the process of writing is almost always
+considered a task for the reader as compared to the task being run by the script itself:
+Write a script.
+The reader needs to know what parameters are given through get(char_name) and
+get(str_name).  To provide context, get the corresponding
+parameter name (or null, depending on the shell environment), then execute
+the invocation of the shell function and return a file object with the given name, with a
+line number and a name which matches the supplied string.
+A similar form, written like this:
+...    try:
+       getname = char_name(
+       name);
+...except as mentioned above, will be called at
+...      __execute(sys.argv[0]);
+...except that this would be called at line number 0, rather than executing it
+...    and returning a byte string, which is used in the shell
+execution order, and then to indicate the execution order.
+...
+Some users may be

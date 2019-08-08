@@ -1,0 +1,73 @@
+======== SAMPLE 1 ========
+ supported the
+command.  The result will always be True if you passed
+a command argument.
+
+
+
+command.aisok()
+Return True if the argument was actually defined by the
+command; otherwise return False.  If true, the
+command is defined with no arguments, and therefore there
+is no need to define a new command with arguments.
+This function is implemented by the standard library’s
+command family interface.  This is the recommended form of
+command with the same name.
+
+Changed in version 3.8: The aisok() argument has a meaning when it is a
+symbol of the option flag in the standard Python parser.  This function
+defines an argument for every invocation thereof.  Also, “the value of the a**3”
+argument to a built-in set of built-in options can be used to
+provide an alternate meaning for a built-in argument that can be used
+by setdefault() and setfrozen().
+
+Changed in version 3.7: A built-in option argument can be used instead of an alternative
+(as if the argument were an option).  There is no alternative to
+any of the options defined in the standard Python parser, and only
+the default is the default one.
+
+
+
+
+
+command.ascmdline(cmd, opt_, opt_flags)
+Compute a command-line option-line option-line option by executing
+command.  cmd can be any of the options defined in the standard Python
+interpreter.  opt_flags are the required flags for the option to
+be executed. Example of an opt_flag field:
+
+
+command.ascmdline(cmd, opt_flags, opt_cmd)
+Convert cmd to a command-line option-line option by executing the
+option.  This option-line option cannot appear
+within the option definition.
+An optional opt_flags field is defined when opt_flags is not
+empty.  This causes the command to be executed by default, but this can
+easily be set with the command keyword.  For example, opt_cmd is
+supplied when the option option is executed:
+
+
+<command>                                                       *
+                                                     --
+                                                            --
+                                                    *
+                                               --
+
+
+The arguments passed to the command will be returned to the
+command if desired.  The default interpretation of these
+arguments is that the default values will be passed to the new
+option when the default is defined.
+
+
+
+
+
+
+                  
+                           
+                                 *
+                                        --
+                                                           --
+                                                   --
+  

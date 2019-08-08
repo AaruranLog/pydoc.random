@@ -1,0 +1,104 @@
+======== SAMPLE 1 ========
+ reference (if defined) by using the context managers from C to run
+some function. This is normally done implicitly by the Python built-in context managers, for instance by setting
+the __context__ attribute on a C context manager. For use with Python, it might also be
+needed to have another context manager call that function.
+
+Changed in version 3.2: Added the getcontext_variables() and getcontext_object() methods.
+
+
+Changed in version 3.5: The context manager for the Python built-in context manager is now a subclass of the
+context managers.
+
+
+
+
+
+contextmanagement.getprec_pre()
+Return a list of all calls to the context management function with arguments.  If
+not defined or unrooted, this is the function which sets up the instance for
+the Python built-in context manager.  You can read the documentation of any
+call to this function by calling it with the context manager as the argument.
+>>> contextmanagement.getprec_pre("example:foo")
+<Example:foo, argc=(2), context=None>
+
+Note that the instance was built into the context manager when the context manager was
+set up with the function.
+
+
+
+
+contextmanagement.getprec_object()
+Return an instance object of the context management function. If no
+return value is defined, this is the function which set up the instance for
+the Python built-in context manager.  If the instance instance is a pointer to some
+object, it must have been built into the context manager and has been initialized with
+the pointer as well.
+>>> contextmanagement.getprec_object("defaults")
+<defaults, argc=(0, 0, 1)>
+
+
+The default value argument is used when the Python built-in context manager does not use any
+context management functions.
+>>> contextmanagement.getprec_object("defaults")
+<defaults, argc=(0, 0, 1)>
+
+The default keyword argument is used when the Python built-in context manager does not use
+Context Manager classes as an argument.  The return value of
+contextmanagement.getprec_object() is NULL.
+The returned object usually takes only the value of its Context Manager
+instance that is defined to have a default value. When the context manager
+sources its default instance (or None), the default instance argument defaults to
+NULL, instead of NULL.
+
+
+Note that not all context managers use this function; if only a subset are used,
+they should return NULL. Also note that the default instance returned by
+getprec_object() implicitly defaults to NULL: if your context manager uses
+getprec_object() instead of context, a NULL value will be returned from that
+call.
+
+
+The context management function implicitly sets up its own instance, using the
+instance to which it was bound. This is necessary because all Python
+context managers implicitly set the default instance to NULL for all C
+context managers except those named with the context manager constructor.
+Since the default instance is NULL, the class default() is implicitly cast to
+NULL using the context manager.
+
+
+
+Note
+It is common to use the __context__ attribute of instance() instances with
+the context manager in the context manager for the instance it is bound to. In this case,
+this method will not cast the default instance to NULL.
+
+
+
+
+contextmanagement.setprec_instance(context)
+The function setprec_object(context).
+In Python, context will be set to the default instance of the underlying context
+managers instance. This is a convenience function to prevent unnecessary
+instances being created by using setprec_pre() on a subclass of the
+context manager interface.
+Because this function does nothing useful during the execution of a function, it is not
+a good idea to use it during compilation, especially when you are using
+the context manager with the Python built-in context manager.
+When using this function in context-specific code, keep in mind that if the
+method is named with context, the instance is not initialized to
+otherwise have context manager instances set to NULL for that class.
+
+
+
+
+contextmanagement.setprec_object(context)
+The function setprec_object(context) provides the default object used
+in the context manager for a class-level context manager.
+The function sets up its own instance of context management.  This is necessary because
+all Python context managers implicitly set the default instance to NULL for all C
+context managers except those named with the context manager constructor.
+Since the default instance is created by setting context_variables() and
+getcontext_object() to NULL before setting the default instance to NULL,
+this method will not set default instances to NULL on any C and other contexts
+using the
