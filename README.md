@@ -37,7 +37,7 @@ and Python 3.7+.
 
 ## The easiest way to duplicate my results
 1. Upload the file 'notebook/gpt2_model.ipynb' to a Google Colab notebook.
-2. Upload the file 'src/data/raw_corpus.tar.gz' to that notebook.
+2. Upload the file 'src/data/raw_corpus.tar.gz' to that notebook's workspace
 3. Ensure the Colab runtime has GPU acceleration enabled*.
 4. Run the notebook, and sit back for ~10-20 minutes as the model finetunes
 
